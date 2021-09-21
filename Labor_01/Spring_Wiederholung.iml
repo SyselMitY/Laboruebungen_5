@@ -14,7 +14,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Spring_Wiederholung" value="f0c5597a-a68f-49ba-bec8-a9d04d551826" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
