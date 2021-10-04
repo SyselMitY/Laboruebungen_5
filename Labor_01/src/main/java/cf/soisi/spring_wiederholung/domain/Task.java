@@ -6,8 +6,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+@Entity()
 @Data
+@Table(name = "tasks")
 public class Task {
 
     @Id

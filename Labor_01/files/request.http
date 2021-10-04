@@ -1,0 +1,68 @@
+GET http://{{host}}/api/employees
+
+###
+GET http://{{host}}/api/employees/id/BAUE
+
+###
+POST http://{{host}}/api/employees
+Content-Type: application/json
+
+{
+  "id": "SOSSI",
+  "firstName": "Soisl",
+  "lastName": "Sossn"
+}
+
+###
+GET http://{{host}}/api/employees
+
+###
+GET http://{{host}}/api/employees/HUBE/hoursWorked
+
+###
+GET http://{{host}}/api/employees/HUBE/tasks?from=2019-05-17&to=2019-05-18
+
+
+
+
+###
+GET http://{{host}}/api/employees/id/FAKE
+
+###
+GET http://{{host}}/api/employees/id/
+
+###
+GET http://{{host}}/api/employees/FAKE/hoursWorked
+
+###
+GET http://{{host}}/api/employees/FAKE/tasks?from=2019-05-17&to=2019-05-18
+
+###
+GET http://{{host}}/api/employees/HUBE/tasks?from=2019-05-18&to=2019-05-17
+
+###
+GET http://{{host}}/api/employees/HUBE/tasks?from=2019-05-18&to=morgen
+
+###
+GET http://{{host}}/api/employees/HUBE/tasks?from=2019-05-18
+
+
+###
+POST http://{{host}}/api/employees
+Content-Type: application/json
+
+{
+  "id": "HUBE",
+  "firstName": "Soisl",
+  "lastName": "Sossn"
+}
+
+###
+POST http://{{host}}/api/employees
+Content-Type: application/json
+
+{
+  "id": null,
+  "firstName": "Soisl",
+  "lastName": "Sossn"
+}
