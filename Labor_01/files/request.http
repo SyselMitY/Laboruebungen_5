@@ -66,3 +66,12 @@ Content-Type: application/json
   "firstName": "Soisl",
   "lastName": "Sossn"
 }
+###
+POST http://{{host}}/api/employees
+Content-Type: application/json
+
+{
+  "id": "NEUER",
+  "firstName": "",
+  "lastName": ""
+}

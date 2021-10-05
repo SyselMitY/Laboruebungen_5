@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import java.net.URI;
 import java.time.LocalDate;
@@ -44,7 +45,7 @@ public class EmployeeTaskRestController {
     }
 
     @PostMapping("/employees")
-    ResponseEntity<Staff> addEmployee(@RequestBody Staff toCreate) throws StaffAlreadyExistsException {
+    ResponseEntity<Staff> addEmployee(@RequestBody @Valid Staff toCreate) throws StaffAlreadyExistsException {
 
         if (staffRepository.existsById(toCreate.getId()))
             throw new StaffAlreadyExistsException(toCreate.getId());
