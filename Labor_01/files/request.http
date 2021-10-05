@@ -35,7 +35,13 @@ GET http://{{host}}/api/employees/id/
 GET http://{{host}}/api/employees/FAKE/hoursWorked
 
 ###
+GET http://{{host}}/api/employees/SOSSI/hoursWorked
+
+###
 GET http://{{host}}/api/employees/FAKE/tasks?from=2019-05-17&to=2019-05-18
+
+###
+GET http://{{host}}/api/employees/SOSSI/tasks?from=2019-05-17&to=2019-05-18
 
 ###
 GET http://{{host}}/api/employees/HUBE/tasks?from=2019-05-18&to=2019-05-17
