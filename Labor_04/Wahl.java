@@ -57,7 +57,7 @@ public class Wahl {
 
         if (args.length != 1) {
             System.out.println("Keine Logdatei");
-            System.out.println("Usage: java Wahl pathToLog");
+            System.out.println("Usage: java htlwahl.Wahl pathToLog");
             System.exit(1);
         }
 
