@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aufgaben</title>
+</head>
+<body>
+    <h1>Aufgaben</h1>
+    <table>
+        <tr>
+            <th>Beschreibung</th>
+            <th>Fertiggestellt am</th>
+            <th>Arbeitsstunden</th>
+        </tr>
+        <tr th:each="task : ${taskList}">
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.finishedDate}"></td>
+            <td th:text="${task.hoursWorked}"></td>
+        </tr>
+    </table>
+</body>
+</html>

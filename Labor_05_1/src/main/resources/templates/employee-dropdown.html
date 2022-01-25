@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mitarbeiter</title>
+</head>
+<body>
+<form action="/tasks">
+    <select name="id">
+        <option value="">Bitte auswählen</option>
+        <option th:each="employee : ${employeeList}" th:value="${employee.id}"
+                th:text="${employee.firstName} + ' ' + ${employee.lastName}">
+    </select>
+    <input type="submit" value="Tasks">
+</form>
+</body>
+</html>
