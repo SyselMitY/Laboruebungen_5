@@ -13,13 +13,6 @@ class Kandidat {
         this.name = name;
     }
 
-
-    public void addPoints(int p) {
-        this.punkte += p;
-        if (p == 2)
-            this.platz1++;
-    }
-
     public String toString() {
         DecimalFormat dc = new DecimalFormat("###0");
         return dc.format(punkte) + " / " + dc.format(platz1) + "   " + this.name;

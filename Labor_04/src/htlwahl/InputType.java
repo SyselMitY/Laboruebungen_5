@@ -6,5 +6,6 @@ public enum InputType {
     EDIT_VOTE,
     DETAILED_VOTING,
     EXIT,
-    UNKNOWN
+    UNKNOWN,
+    EXTERNAL
 }

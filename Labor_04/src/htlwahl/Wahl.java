@@ -24,6 +24,10 @@ public class Wahl {
         return lastVoteSecond;
     }
 
+    public Kandidat getNonVoteKandidat() {
+        return kandidaten[0];
+    }
+
     public int getVoteCount() {
         return voteCount;
     }
@@ -35,7 +39,7 @@ public class Wahl {
         this.voteCount = 0;
     }
 
-    public void giveVotes(Kandidat kandidat, boolean isFirst, boolean revert) {
+    private void giveVotes(Kandidat kandidat, boolean isFirst, boolean revert) {
         int currentVotes = kandidat.getPunkte();
         int currentPlatz1 = kandidat.getPlatz1();
         int revertFactor = revert ? -1 : 1;
@@ -53,13 +57,13 @@ public class Wahl {
         Kandidat[] secondChoice = getKandidatenFromVote(vote.substring(1, 2));
         checkKandidatArray(firstChoice, secondChoice);
         registerVote(firstChoice[0], secondChoice[0]);
-        this.voteCount++;
     }
 
-    private void registerVote(Kandidat kandidat, Kandidat kandidat1) {
+    public void registerVote(Kandidat kandidat, Kandidat kandidat1) {
         checkDuplicate(kandidat, kandidat1);
         giveVotes(kandidat, true, false);
         giveVotes(kandidat1, false, false);
+        this.voteCount++;
         lastVoteFirst = kandidat;
         lastVoteSecond = kandidat1;
     }
@@ -78,7 +82,7 @@ public class Wahl {
             lastVoteFirst = null;
             lastVoteSecond = null;
             voteCount--;
-        } else throw new IllegalArgumentException("Bereits einmal gelöscht!\n");
+        } else throw new IllegalStateException("Bereits einmal gelöscht!\n");
     }
 
     private void checkKandidatArray(Kandidat[] firstChoice, Kandidat[] secondChoice) throws AmbiguousVoteException {
@@ -128,7 +132,11 @@ public class Wahl {
     }
 
     private Kandidat getKandidatFromStringIndex(String index) {
-        int indexInt = Integer.parseInt(index);
-        return kandidaten[indexInt];
+        try {
+            int indexInt = Integer.parseInt(index);
+            return kandidaten[indexInt];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new IllegalArgumentException("Ungültiger Index");
+        }
     }
 }
