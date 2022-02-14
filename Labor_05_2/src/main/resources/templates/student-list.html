@@ -14,6 +14,7 @@
     <tr th:each="student : ${students}">
         <td th:text="${student}"></td>
         <td><a th:href="'/grade-list?id=' + ${student.id}" th:text="${#lists.size(student.grades)} + ' grades'"></a></td>
+    </tr>
 </table>
 </body>
 </html>
