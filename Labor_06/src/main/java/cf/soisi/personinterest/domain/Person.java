@@ -1,5 +1,8 @@
 package cf.soisi.personinterest.domain;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -11,7 +14,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Getter
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Person {
+
+    public Person(String firstName, String lastName, LocalDate dateOfBirth, Sex sex, Interest... interests) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.interests = Set.of(interests);
+        this.sex = sex;
+    }
 
     public static final String NAME_REGEX = "^[A-Z]\\p{L}{0,29}$";
     @Id
