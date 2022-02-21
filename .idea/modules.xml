@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Labor_04/Labor_04.iml" filepath="$PROJECT_DIR$/Labor_04/Labor_04.iml" />
       <module fileurl="file://$PROJECT_DIR$/Labor_01/Spring_Wiederholung.iml" filepath="$PROJECT_DIR$/Labor_01/Spring_Wiederholung.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Labor_06/personinterest.iml" filepath="$PROJECT_DIR$/Labor_06/personinterest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Labor_05_1/task_employee.iml" filepath="$PROJECT_DIR$/Labor_05_1/task_employee.iml" />
       <module fileurl="file://$PROJECT_DIR$/Labor_05_2/viewmymarks.iml" filepath="$PROJECT_DIR$/Labor_05_2/viewmymarks.iml" />
     </modules>

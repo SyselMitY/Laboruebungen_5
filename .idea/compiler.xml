@@ -7,12 +7,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="task_employee" />
         <module name="viewmymarks" />
         <module name="Spring_Wiederholung" />
+        <module name="task_employee" />
+        <module name="personinterest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="personinterest" target="17" />
       <module name="Spring_Wiederholung" target="16" />
       <module name="task_employee" target="17" />
       <module name="viewmymarks" target="17" />
@@ -21,6 +23,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Spring_Wiederholung" options="-parameters" />
+      <module name="personinterest" options="-parameters" />
       <module name="task_employee" options="-parameters" />
       <module name="viewmymarks" options="-parameters" />
     </option>
