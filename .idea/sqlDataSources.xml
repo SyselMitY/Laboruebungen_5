@@ -12,6 +12,20 @@
             </array>
           </option>
         </State>
+        <State>
+          <option name="id" value="a67795d0-36f9-4896-b7dc-dd685d163db5" />
+          <option name="name" value="5_1" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/Labor_05_1/src/main/resources/schema.sql" />
+            </array>
+          </option>
+          <option name="scriptOptions">
+            <map>
+              <entry key="QualifyWithSchema" value="ALWAYS" />
+            </map>
+          </option>
+        </State>
       </list>
     </option>
   </component>

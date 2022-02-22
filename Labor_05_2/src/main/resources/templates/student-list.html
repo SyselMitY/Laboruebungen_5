@@ -1,0 +1,20 @@
+<!--Language: Thymeleaf-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schülerübersicht</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Grades</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student}"></td>
+        <td><a th:href="'/grade-list?id=' + ${student.id}" th:text="${#lists.size(student.grades)} + ' grades'"></a></td>
+    </tr>
+</table>
+</body>
+</html>

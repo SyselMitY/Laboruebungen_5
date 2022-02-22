@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notenübersicht</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Subject</th>
+        <th>Grade</th>
+    </tr>
+    <tr th:each="grade : ${student.grades}">
+        <td th:text="${grade.date}"></td>
+        <td th:text="${grade.subject}"></td>
+        <td th:text="${grade}"></td>
+</table>
+
+<h1>New record</h1>
+<form th:action="@{/grade}" method="post">
+    <div>
+        <label for="subject">Subject: </label>
+        <select name="subject" id="subject">
+            <option th:each="subject : ${subjects}" th:value="${subject}" th:text="${subject}"></option>
+        </select>
+    </div>
+
+    <div>
+        <span>Grade: </span>
+        <input type="radio" id="grade1" name="gradeRating" value="1"> <label for="grade1">1</label>
+        <input type="radio" id="grade2" name="gradeRating" value="2"> <label for="grade2">2</label>
+        <input type="radio" id="grade3" name="gradeRating" value="3"> <label for="grade3">3</label>
+        <input type="radio" id="grade4" name="gradeRating" value="4"> <label for="grade4">4</label>
+        <input type="radio" id="grade5" name="gradeRating" value="5"> <label for="grade5">5</label>
+    </div>
+
+    <div>
+        <label for="date">Date: </label>
+        <input type="date" required name="date" id="date">
+    </div>
+
+    <input type="hidden" required th:value="${student.id}" name="studentId">
+
+    <input type="submit">
+
+</form>
+</body>
+</html>
