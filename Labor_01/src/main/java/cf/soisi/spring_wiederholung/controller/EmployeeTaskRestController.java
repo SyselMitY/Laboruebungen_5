@@ -24,8 +24,8 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class EmployeeTaskRestController {
 
-    StaffRepository staffRepository;
-    TaskRepository taskRepository;
+    private final StaffRepository staffRepository;
+    private final TaskRepository taskRepository;
 
     public EmployeeTaskRestController(StaffRepository staffRepository, TaskRepository taskRepository) {
         this.staffRepository = staffRepository;
