@@ -1,0 +1,25 @@
+<!--lang: thymeleaf-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Persons</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Last name</th>
+        <th>First name</th>
+        <th>Date of birth</th>
+        <th>Interests</th>
+    </tr>
+    <tr th:each="person : ${persons}">
+        <td th:text="${person.lastName}"></td>
+        <td th:text="${person.firstName}"></td>
+        <td th:text="${person.dateOfBirth}"></td>
+        <td th:text="${person.getFormattedInterests()}"></td>
+    </tr>
+</table>
+<a href="/add">New</a>
+</body>
+</html>

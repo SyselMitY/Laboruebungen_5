@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+</head>
+<body>
+<form th:object="${person}" th:action="@{/add}" method="post">
+    <div>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" th:field="*{firstName}"/>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+    </div>
+    <div>
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" th:field="*{lastName}"/>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+    </div>
+    <div>
+        <label for="dateOfBirth">Date of Birth</label>
+        <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}"/>
+        <span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}"></span>
+    </div>
+
+    <div>
+        <label for="sex">Sex</label>
+        <select th:field="*{sex}">
+            <option th:each="sexValue : ${T(cf.soisi.personinterest.domain.Sex).values()}" th:value="${sexValue}" th:text="${sexValue}"></option>
+        </select>
+        <span th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}"></span>
+    </div>
+
+    <div>
+        <label>Interests:</label>
+        <ul>
+            <li th:each="interest: ${interests}">
+                <input type="checkbox" th:field="*{interests}" th:value="${interest.id}"
+                       th:text="${interest.description}"/>
+            </li>
+        </ul>
+        <span th:if="${#fields.hasErrors('interests')}" th:errors="*{interests}"></span>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
