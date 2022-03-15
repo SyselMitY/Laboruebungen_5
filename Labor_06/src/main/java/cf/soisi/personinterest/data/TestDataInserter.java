@@ -5,6 +5,7 @@ import cf.soisi.personinterest.domain.Person;
 import cf.soisi.personinterest.domain.Sex;
 import cf.soisi.personinterest.repo.InterestRepository;
 import cf.soisi.personinterest.repo.PersonRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -12,7 +13,10 @@ import java.util.List;
 import java.util.Set;
 
 @Component
-public class TestDataInserter {
+public class TestDataInserter implements CommandLineRunner {
+
+    private final PersonRepository personRepository;
+    private final InterestRepository interestRepository;
 
     private static final List<Interest> interests = List.of(
             new Interest("Photography"),
@@ -24,7 +28,6 @@ public class TestDataInserter {
             new Interest("Cooking")
     );
 
-    //Persons: generate data
     private static final Set<Person> persons = Set.of(
             new Person("Peter",
                     "Sysel",
@@ -38,6 +41,12 @@ public class TestDataInserter {
     );
 
     public TestDataInserter(PersonRepository personRepository, InterestRepository interestRepository) {
+        this.personRepository = personRepository;
+        this.interestRepository = interestRepository;
+    }
+
+    @Override
+    public void run(String... args) {
         interestRepository.saveAll(interests);
         personRepository.saveAll(persons);
     }
