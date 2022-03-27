@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frage hinzufügen</title>
+</head>
+<body>
+<div>
+    <span th:text="${email}"></span>
+    <span> | </span>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+<h1>Frage hinzufügen</h1>
+
+<form th:action="@{/add}" th:object="${frage}" method="post">
+
+    <div th:if="${#fields.hasErrors('*')}">
+        <h1>Errors</h1>
+        <ul>
+            <li th:each="err : ${#fields.errors('*')}"
+                th:text="${err}">Error</li>
+        </ul>
+    </div>
+
+    <div>
+        <label for="title">Überschrift</label>
+        <input type="text" name="title" id="title" required th:field="*{bezeichnung}"/>
+    </div>
+    <div>
+        <label for="question">Frage</label>
+        <input type="text" name="question" id="question" required th:field="*{fragetext}"/>
+    </div>
+    <div>
+        <label for="expiration">Ablaufdatum</label>
+        <input type="date" name="expiration" id="expiration" required th:field="*{ablaufdatum}"/>
+    </div>
+    <input type="submit"/>
+</form>
+<a th:href="@{/fragen}">Zu den Fragen</a>
+</body>
+<html>

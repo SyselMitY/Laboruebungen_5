@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Offene Fragen</title>
+</head>
+<body>
+<div>
+    <span th:text="${email}"></span>
+    <span> | </span>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+<h1>Offene Fragen</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Titel</th>
+        <th>Ablaufdatum</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="frage : ${fragen}">
+        <td th:text="${frage.bezeichnung}"></td>
+        <td th:text="${frage.ablaufdatum}"></td>
+        <td><a th:href="@{/fragen/{id} (id=${frage.id})}">Beantworten ---></a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

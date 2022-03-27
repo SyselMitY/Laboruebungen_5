@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragenübersicht</title>
+</head>
+<body>
+<h1>Fragenübersicht</h1>
+
+<div>
+    <span th:text="${email}"></span>
+    <span> | </span>
+    <a th:href="@{/logout}">Logout</a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Frage</th>
+        <th>Ablaufdatum</th>
+        <th th:each="antwortmoeglichkeit : ${T(cf.soisi.springsecurity.domain.Antwortmoeglichkeit).values()}" th:text="${antwortmoeglichkeit}"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="frage : ${fragen}">
+        <td th:text="${frage.bezeichnung}"></td>
+        <td th:text="${frage.ablaufdatum}"></td>
+        <td th:each="antwortmoeglichkeit : ${frage.antworten}" th:text="${antwortmoeglichkeit.value}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/add}">Hinzufügen</a>
+</body>
+</html>
